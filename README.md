@@ -24,8 +24,7 @@ You will also need to place a json file of heroes and their point values in the 
 {
   "bane crisis": 1,
   "batgirl crisis": 1,
-  "batwoman": 1,
-  ...
+  "batwoman": 1
 }
 ```
 
