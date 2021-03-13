@@ -1,6 +1,6 @@
 .idea/
 node_modules/
-output/*
+output/*.csv
 config.json
 statCache.csv
-assets/heroes.json
+assets/*.json
