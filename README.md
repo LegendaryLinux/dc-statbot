@@ -2,6 +2,8 @@
 
 A bot designed to track character usage and win statistics for the card game DC Deckbuilding.
 
+[Click here to add DCStatBot to your Discord server!](https://discord.com/oauth2/authorize?client_id=820171225275432971&scope=bot&permissions=35840)
+
 You will need a `config.json` file in the root directory of the project.
 ```json
 {
