@@ -36,8 +36,10 @@ fs.stat('statCache.csv', (err) => {
 
 // Write the conversationCache to the csvFile once every fifteen minutes
 setInterval(async () => {
-    await client.csvHandler.writeRecords(client.conversationCache);
-    client.conversationCache = [];
+    if (client.conversationCache.length > 0) {
+        await client.csvHandler.writeRecords(client.conversationCache);
+        client.conversationCache = [];
+    }
 }, 900000)
 
 // Load command category files
