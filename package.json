@@ -1,0 +1,12 @@
+{
+  "name": "dc-statbot",
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {
+    "run": "node bot.js"
+  },
+  "dependencies": {
+    "csv-writer": "^1.6.0",
+    "discord.js": "^12.4.1"
+  }
+}

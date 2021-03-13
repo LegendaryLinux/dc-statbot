@@ -1,0 +1,6 @@
+.idea/
+node_modules/
+output/*
+config.json
+statCache.csv
+assets/heroes.json
