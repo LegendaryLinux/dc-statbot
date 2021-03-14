@@ -62,6 +62,7 @@ module.exports = async (client, message) => {
       }
 
       client.conversationCache.push(client.conversations[message.author.id]);
+      clearTimeout(client.conversations[message.author.id].timeoutId);
       delete client.conversations[message.author.id];
       return await message.author.send('Thank you for your report!');
     }
@@ -100,6 +101,7 @@ module.exports = async (client, message) => {
       }
 
       client.conversationCache.push(client.conversations[message.author.id]);
+      clearTimeout(client.conversations[message.author.id].timeoutId);
       delete client.conversations[message.author.id];
       return await message.author.send('Thank you for your report!');
     }
@@ -138,6 +140,7 @@ module.exports = async (client, message) => {
       }
 
       client.conversationCache.push(client.conversations[message.author.id]);
+      clearTimeout(client.conversations[message.author.id].timeoutId);
       delete client.conversations[message.author.id];
       return await message.author.send('Thank you for your report!');
     }
@@ -176,6 +179,7 @@ module.exports = async (client, message) => {
       }
 
       client.conversationCache.push(client.conversations[message.author.id]);
+      clearTimeout(client.conversations[message.author.id].timeoutId);
       delete client.conversations[message.author.id];
       return await message.author.send('Thank you for your report!');
     }
@@ -202,6 +206,7 @@ module.exports = async (client, message) => {
       `Your team total is ${client.conversations[message.author.id].points}.`);
 
     client.conversationCache.push(client.conversations[message.author.id]);
+    clearTimeout(client.conversations[message.author.id].timeoutId);
     delete client.conversations[message.author.id];
     return await message.author.send('Thank you for your report!');
   }

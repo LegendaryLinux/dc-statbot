@@ -11,6 +11,12 @@ module.exports = {
             adminOnly: false,
             guildOnly: false,
             execute(message, args) {
+                // If the user restarts a report midway through, clear any existing timeout to prevent
+                // prematurely aborting the new report
+                if (message.client.conversations.hasOwnProperty(message.author.id)) {
+                    clearTimeout(message.client.conversations[message.author.id].timeoutId);
+                }
+
                 message.client.conversations[message.author.id] = {
                     placement: null,
                     points: 0,
@@ -19,6 +25,12 @@ module.exports = {
                     hero3: null,
                     hero4: null,
                     hero5: null,
+                    timeoutId: setTimeout(() => {
+                        // Time out a user's report if they don't finish it after fifteen minutes
+                        if (message.client.conversations.hasOwnProperty(message.author.id)) {
+                            delete message.client.conversations[message.author.id];
+                        }
+                    }, 900000),
                 }
 
                 // Tell users to check their DMs
