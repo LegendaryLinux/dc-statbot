@@ -20,6 +20,13 @@ module.exports = {
                       ` channel.`);
                 }
 
+                // Write the currently in-memory reports to the working file
+                if (message.client.conversationCache.length > 0) {
+                    message.client.csvHandler.writeRecords(message.client.conversationCache).then(() => {
+                        message.client.conversationCache = [];
+                    });
+                }
+
                 // Copy the current csv file to the /output directory
                 const now = new Date();
                 if (!fs.existsSync('statCache.csv')) {
@@ -58,22 +65,40 @@ module.exports = {
             },
         },
         {
-            name: 'write-now',
-            description: 'Manually tell the bot to copy its conversationCache to the working file',
-            longDescription: 'Manually tell the bot to copy its conversationCache to the working file',
-            aliases: ['wn'],
-            usage: '`!write-now`',
+            name: 'current-season',
+            description: 'Output the current season data to the channel',
+            longDescription: 'Output the current season data to the channel',
+            aliases: ['cs'],
+            usage: '`!current-season`',
             minimumRole: config.moderatorRole,
             adminOnly: false,
             guildOnly: true,
             execute(message, args) {
+                if (message.channel.name !== config.reportingChannel) {
+                    return message.channel.send(`You must issue this command from the #${config.reportingChannel} ` +
+                      ` channel.`);
+                }
+
+                // Write the currently in-memory reports to the working file
                 if (message.client.conversationCache.length > 0) {
                     message.client.csvHandler.writeRecords(message.client.conversationCache).then(() => {
                         message.client.conversationCache = [];
                     });
                 }
-                message.channel.send('Done.');
+
+                if (!fs.existsSync('statCache.csv')) {
+                    return message.channel.send("There is no current season data!");
+                }
+
+                message.channel.send({
+                    files: [
+                        {
+                            name: 'current-season.csv',
+                            attachment: 'statCache.csv',
+                        },
+                    ],
+                });
             },
-        }
+        },
     ],
 };
