@@ -17,6 +17,11 @@ client.messageListeners = [];
 client.conversations = {};
 client.conversationCache = [];
 
+// Track currently loaded card data
+client.mainCards = [];
+client.heroCards = [];
+client.villainCards = [];
+
 // Create the csv file handler
 fs.stat('statCache.csv', (err) => {
     client.csvHandler = createCsvWriter({

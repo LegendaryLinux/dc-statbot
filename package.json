@@ -6,7 +6,9 @@
     "run": "node bot.js"
   },
   "dependencies": {
+    "autodetect-decoder-stream": "^2.0.0",
+    "csv-reader": "^1.0.8",
     "csv-writer": "^1.6.0",
-    "discord.js": "^12.4.1"
+    "discord.js": "^12.5.3"
   }
 }
