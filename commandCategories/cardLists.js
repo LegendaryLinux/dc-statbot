@@ -101,9 +101,9 @@ module.exports = {
                       'correctly and contain three columns of data.');
                 }
 
-                client.mainCards = mainCards;
-                client.heroCards = heroCards;
-                client.villainCards = villainCards;
+                message.client.mainCards = mainCards;
+                message.client.heroCards = heroCards;
+                message.client.villainCards = villainCards;
                 return message.channel.send('Card data updated successfully. It may be retrieved with `!cards`.');
             },
         },

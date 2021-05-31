@@ -4,3 +4,4 @@ output/*.csv
 config.json
 statCache.csv
 assets/*.json
+assets/*.csv
