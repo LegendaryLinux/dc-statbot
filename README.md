@@ -31,6 +31,8 @@ You will also need to place a json file of heroes and their point values in the 
 ```
 
 # Installation and running the bot
+**Note:** DCStatBot requires at least Node.js v14.14.0, but v16+ is recommended.
+
 ```bash
 git clone https://github.com/LegendaryLinux/dc-statbot
 cd dc-statbot
